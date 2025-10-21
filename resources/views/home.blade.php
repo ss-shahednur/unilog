@@ -396,7 +396,12 @@
                     try {
                         const res = await fetch(`${this.baseUrl}/api/customers/register`, {
                             method: 'POST',
-                            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                            headers: { 
+                                'Content-Type': 'application/json', 
+                                'Accept': 'application/json',
+                                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                                'X-Requested-With': 'XMLHttpRequest',
+                             },
                             body: JSON.stringify(this.registerForm)
                         });
                         const data = await res.json();
@@ -412,7 +417,12 @@
                     try {
                         const res = await fetch(`${this.baseUrl}/api/customers/verify-register-otp`, {
                             method: 'POST',
-                            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                            headers: { 
+                                'Content-Type': 'application/json', 
+                                'Accept': 'application/json',
+                                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                                'X-Requested-With': 'XMLHttpRequest',
+                            },
                             body: JSON.stringify(this.verifyForm)
                         });
                         const data = await res.json();
@@ -428,7 +438,12 @@
                     try {
                         const res = await fetch(`${this.baseUrl}/api/customers/resend-otp`, {
                             method: 'POST',
-                            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                            headers: { 
+                                'Content-Type': 'application/json', 
+                                'Accept': 'application/json',
+                                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                                'X-Requested-With': 'XMLHttpRequest',
+                             },
                             body: JSON.stringify(this.resendForm)
                         });
                         const data = await res.json();
@@ -444,7 +459,12 @@
                     try {
                         const res = await fetch(`${this.baseUrl}/api/customers/login`, {
                             method: 'POST',
-                            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                            headers: { 
+                                'Content-Type': 'application/json', 
+                                'Accept': 'application/json',
+                                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                                'X-Requested-With': 'XMLHttpRequest',
+                             },
                             body: JSON.stringify(this.loginForm)
                         });
                         const data = await res.json();
@@ -463,7 +483,12 @@
                     try {
                         const res = await fetch(`${this.baseUrl}/api/customers/forgot-password`, {
                             method: 'POST',
-                            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                            headers: { 
+                                'Content-Type': 'application/json', 
+                                'Accept': 'application/json',
+                                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                                'X-Requested-With': 'XMLHttpRequest',
+                             },
                             body: JSON.stringify(this.forgotForm)
                         });
                         const data = await res.json();
@@ -479,7 +504,12 @@
                     try {
                         const res = await fetch(`${this.baseUrl}/api/customers/reset-password`, {
                             method: 'POST',
-                            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                            headers: { 
+                                'Content-Type': 'application/json', 
+                                'Accept': 'application/json',
+                                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                                'X-Requested-With': 'XMLHttpRequest',
+                             },
                             body: JSON.stringify(this.resetForm)
                         });
                         const data = await res.json();
@@ -502,6 +532,8 @@
                             headers: {
                                 'Content-Type': 'application/json',
                                 'Accept': 'application/json',
+                                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                                'X-Requested-With': 'XMLHttpRequest',
                                 'Authorization': `Bearer ${this.token}`
                             },
                             body: JSON.stringify(this.changeForm)
@@ -531,6 +563,8 @@
                             method: 'POST',
                             headers: {
                                 'Accept': 'application/json',
+                                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                                'X-Requested-With': 'XMLHttpRequest',
                                 'Authorization': `Bearer ${this.token}`
                             },
                             body: formData
